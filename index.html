@@ -40,25 +40,25 @@
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt repellendus explicabo enim, voluptate veritatis, perferendis reprehenderit necessitatibus sunt quidem ullam adipisci itaque illo repudiandae architecto, 
                         dolorum earum tempore ea! Quisquam..</p>
                         <div class="tab-titles">
-                            <p class="tab-links active-link">Skills</p>
-                            <p class="tab-links">Experience</p>
-                            <p class="tab-links">Education</p>
+                            <p class="tab-links active-link" onclick="opentab( 'skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
                         </div>
-                        <div class="tab-contents active-tab">
+                        <div class="tab-contents active-tab" id="skills">
                             <ul>
                                 <li><span>UI?UX</span><br>Designing Web Interfaces</li>
                                 <li><span>Web Development</span><br>Designing Web Interfaces</li>
                                 <li><span>App Development</span><br>Designing Web Interfaces</li>
                             </ul>
                         </div>
-                        <div class="tab-contents">
+                        <div class="tab-contents" id="experience">
                             <ul>
                                 <li><span>2011-2014</span><br>Accouantant</li>
                                 <li><span>2014-2017</span><br>Accouanting Manager</li>
                                 <li><span>App Development</span><br>Designing Web Interfaces</li>
                             </ul>
                         </div>
-                        <div class="tab-contents">
+                        <div class="tab-contents" id="education">
                             <ul>
                                 <li><span>2007-2011</span><br>BEÜ Economics</li>
                                 <li><span>Web Development</span><br>Designing Web Interfaces</li>
@@ -69,5 +69,19 @@
             </div>
         </div>
     </div>
+    <script>
+        var tablinks=document.getElementsByClassName("tab-links")
+        var tabcontents=document.getElementsByClassName("tab-contents")
+        function opentab(tabname){
+            for (tablink of tablinks){
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents){
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link")
+            document.getElementById(tabname).classList.add("active-tab")
+        }
+    </script>
 </body>
 </html>
